@@ -1,3 +1,89 @@
+1️⃣ Final Microservice List (Confirmed)
+#	Service Name	Port (example)
+1	config-server	8888
+2	discovery-server (Eureka)	8761
+3	api-gateway	8080
+4	auth-service	8081
+5	user-service	8082
+6	plan-service	8083
+7	subscription-service	8084
+8	usage-service	8085
+9	billing-service	8086
+10	payment-service	8087
+11	support-service	8088
+12	outage-service	8089
+13	notification-service	8090
+
+👉 Interview Tip
+
+“Ports are only for local development. In Kubernetes, services communicate via service names.”
+
+2️⃣ Technology Stack (Baseline)
+Layer	Choice
+Java	17
+Framework	Spring Boot 3.x
+Spring Cloud	2023.x
+Build	Maven
+Config	Spring Cloud Config Server
+Discovery	Eureka
+Gateway	Spring Cloud Gateway
+Security	Spring Security + JWT
+Resilience	Resilience4j
+DB	PostgreSQL (prod), H2 (local)
+Messaging	Kafka (later phase)
+Observability	Zipkin + ELK
+Container	Docker → Kubernetes
+3️⃣ Environment Strategy
+dev   → local machine
+qa    → shared testing
+prod  → cloud / k8s
+
+Config Naming Convention
+application.yml
+user-service.yml
+user-service-dev.yml
+user-service-qa.yml
+
+
+✔ Externalized
+✔ Environment-specific
+✔ Zero redeploy for config change
+
+4️⃣ Communication Pattern
+🔹 Synchronous (REST)
+
+Used for:
+
+Plan validation
+
+User profile fetch
+
+Authentication
+
+🔹 Asynchronous (Events – later)
+
+Used for:
+
+Billing generation
+
+Usage processing
+
+Notifications
+
+5️⃣ Security Baseline
+
+JWT issued by Auth Service
+
+API Gateway validates token
+
+Downstream services trust gateway
+
+Role-based access
+
+USER → subscribe plan
+ADMIN → create plans
+SUPPORT → resolve tickets
+
 6️⃣ Resilience Strategy (Baseline)
 Scenario	Solution
 Service down	Circuit Breaker
@@ -5,3 +91,13 @@ Slow response	Timeout
 Temporary failure	Retry
 Dependency overload	Bulkhead
 Failure response	Fallback
+7️⃣ Folder / Repo Strategy
+Option 1 (Recommended)
+telecom-microservices/
+ ├─ config-repo/
+ ├─ config-server/
+ ├─ discovery-server/
+ ├─ api-gateway/
+ ├─ auth-service/
+ ├─ user-service/
+ └─ ...
