@@ -1,1 +1,10 @@
+spring:
+  application:
+    name: subscription-service
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,refresh
 
