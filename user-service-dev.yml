@@ -8,6 +8,10 @@ management:
         include: "*"
 
 spring:
+  cloud:
+    openfeign:
+      micrometer:
+        enabled: true
   datasource:
     url: jdbc:h2:file:./data/userdb
     driver-class-name: org.h2.Driver
