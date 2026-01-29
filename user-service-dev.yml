@@ -27,6 +27,6 @@ spring:
 logging:
   level:
     org.hibernate.SQL: DEBUG
-    com.upenderlab.user_service.controller:DEBUG
+    com.upenderlab.user_service.controller: DEBUG
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
 
