@@ -33,4 +33,5 @@ logging:
     org.hibernate.SQL: DEBUG
     com.upenderlab.user_service.controller: DEBUG
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    feign: DEBUG
 
