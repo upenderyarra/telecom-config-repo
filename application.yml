@@ -10,6 +10,11 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
 management:
+  observations:
+    http:
+      server:
+        requests:
+          enabled: true
   endpoints:
     health:
       show-details: always
