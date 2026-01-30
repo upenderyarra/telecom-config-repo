@@ -1,4 +1,8 @@
 spring:
+  cloud:
+    openfeign:
+      micrometer:
+        enabled: true
   jackson:
     serialization:
       indent_output: true
