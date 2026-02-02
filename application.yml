@@ -1,8 +1,4 @@
 spring:
-  cloud:
-    openfeign:
-      micrometer:
-        enabled: true
   jackson:
     serialization:
       indent_output: true
@@ -14,17 +10,13 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
 management:
-  observations:
-    http:
-      server:
-        requests:
-          enabled: true
   endpoints:
     health:
       show-details: always
     web:
       exposure:
         include: "*"
+#for enabling traceid creation, probability: 1.0 (100% tracing all request)
   tracing:
     enabled: true
     sampling:
