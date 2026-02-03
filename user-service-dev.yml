@@ -9,25 +9,20 @@ management:
 
 spring:
   datasource:
-    url: jdbc:h2:file:./data/userdb
-    driver-class-name: org.h2.Driver
-    username: sa
-    password: ""
+    url: jdbc:mysql://localhost:3306/userdb
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
 
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
 
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
-
+  
 logging:
   level:
     org.hibernate.SQL: DEBUG
     com.upenderlab.user_service.controller: DEBUG
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
     feign: DEBUG
-
